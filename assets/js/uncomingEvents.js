@@ -1,8 +1,9 @@
 const { createApp } = Vue;
 
 createApp({                 
-    data(){                 
-        return{                    
+    data(){                
+        return{                  
+            currentDate: undefined,
             miObjeto: [],
             miObjetoFiltrado: [],
             categorias: [],
@@ -15,7 +16,12 @@ createApp({
         fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then(response => response.json())
         .then(data =>{ 
-            this.miObjeto = data.events;  
+            this.currentDate = new Date(data.currentDate);
+            this.miObjeto = data.events;
+            this.miObjeto = this.miObjeto.filter(objeto => {
+                const eventDate = new Date(objeto.date);
+                return eventDate > this.currentDate
+            })  
             this.miObjetoFiltrado = this.miObjeto;    
             this.categorias = [... new Set(this.miObjeto.map(elemento => elemento.category))];
         })
