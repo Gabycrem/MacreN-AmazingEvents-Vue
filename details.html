@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav nav  mb-2 mb-lg-0  gap-lg-4 gap-md-3 gap-sm-1 fs-3">
             <li class="btn btn-dark nav-item">
-              <a class="nav-link color-text" href="./index.html">Home</a>
+              <a class="nav-link active color-text" aria-current="page" href="./index.html">Home</a>
             </li>
             <li class="btn btn-dark nav-item">
               <a class="nav-link color-text" href="./uncomingEvents.html">Uncoming Events</a>
@@ -35,7 +35,7 @@
               <a class="nav-link color-text" href="./pastEvents.html">Past Events</a>
             </li>
             <li class="btn btn-dark nav-item">
-              <a class="nav-link color-text active" aria-current="page" href="#">Contact</a>
+              <a class="nav-link color-text" href="./contact.html">Contact</a>
             </li>
             <li class="btn btn-dark nav-item">
               <a class="nav-link color-text" href="./stats.html">Stats</a>
@@ -48,8 +48,12 @@
     </nav>
     <div id="carouselExampleDark" class="bg-danger-subtle carousel carousel-dark slide">
       <div class="carousel-inner">
-        <div class="carousel-item  p-4">
-          <h2 class="text-center text-dark d-block w-100 display-4">Home</h2>
+        <div class="carousel-item active p-4">
+          <h2 class="text-center text-dark d-block w-100 display-4">Details</h2>
+        </div>
+        <div class="carousel-item p-4">
+          <h2 class="text-center d-block w-100 text-dark
+                display-4">Home</h2>
         </div>
         <div class="carousel-item p-4">
           <h2 class="text-center d-block w-100 text-dark
@@ -59,7 +63,7 @@
           <h2 class="text-center d-block w-100 text-dark
                 display-4">Past Events</h2>
         </div>
-        <div class="carousel-item active p-4">
+        <div class="carousel-item p-4">
           <h2 class="text-center d-block w-100 text-dark
                 display-4">Contact</h2>
         </div>
@@ -79,27 +83,31 @@
     </div>
   </header>
 
-  <main class="d-flex justify-content-center contact-main">
-    <form action="#" class="d-flex flex-column form-control-lg m-5" method="get" id="contact-form">
-      <div class="mb-3 ">
-        <label for="text-name" class="d-block form-label">Name:</label>
-        <input type="text" class="form-control-lg w-100" id="text-name" required>
+  <main id="app" class="d-flex align-items-center justify-content-center">
+
+    <div class="my-card-detail card-border mb-3 d-flex flex-row p-1 gap-2" id="details-card">
+
+      <div id="card-img-details" class="w-50">
+        <img :src="miObjeto.image" class="img-details" :alt="miObjeto.name">
       </div>
-      <div class="  mb-3">
-        <label for="exampleFormControlInput1" class="d-block form-label">Email:</label>
-        <input type="email" class="form-control-lg w-100" id="exampleFormControlInput1" placeholder="name@example.com"
-          required>
+      <div id="card-txt-details" class="w-50">
+        <div class="card-body">
+          <h5 class="card-title d-inline"><span class="black">{{claves[1]}}:</span> {{miObjeto.name}}</h5>
+          <p class=""><span class="black">{{claves[3]}}:</span> {{miObjeto.date}} </p>
+          <p class="card-text"><span class="black">{{claves[4]}}:</span> {{miObjeto.description}} </p>
+          <p class="card-text"><span class="black">{{claves[2]}}:</span> {{miObjeto.category}} </p>
+          <p class="card-text"><span class="black">{{claves[6]}}:</span> {{miObjeto.place}} </p>
+          <p class="card-text"><span class="black">{{claves[8]}}:</span> {{miObjeto.capacity}} </p>
+          <p class="card-text"><span class="black">{{claves[9]}}:</span> {{miObjeto.assistence ? miObjeto.assistence : miObjeto.estimate}} </p>
+          <p class="card-text"><span class="black">{{claves[7]}}:</span> {{miObjeto.price}} </p>
+          <button onclick="history.back()" class="btn btn-dark color-text card-link">Back</button>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="d-block form-label">Message</label>
-        <textarea class="form-control-lg w-100" id="exampleFormControlTextarea1" cols="23" rows="5" required></textarea>
-      </div>
-      <input class="btn btn-dark color-text card-link w-50 m-auto" type="submit" value="Submit">
-    </form>
+
+    </div>
   </main>
 
   <footer>
-
     <nav class=" footer navbar-dark bg-danger-subtle p-4">
       <div class="d-flex gap-5">
         <a class="navbar-brand color-text" href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -129,6 +137,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="./assets/js/details.js"></script>
 </body>
 
 </html>

@@ -152,6 +152,10 @@ footer svg {
     min-width: 600px;
 }
 
+#details-card .black{
+    font-weight: bolder;
+}
+
 @media only screen and (min-width: 1139px) {
     .main-check{
         width: 100%;
@@ -217,7 +221,23 @@ footer svg {
 @media only screen and (max-width: 620px){
     #details-card{
         min-width: 0;
-        width: 100% ;
+        width: 75% ;
+        flex-direction: column!important;
+        margin: 2em 0;
+    }
+    #card-txt-details, #card-img-details{
+        width: 100%!important;
+    }
+    #card-txt-details{
+        padding: 1em!important;
+    }
+    .img-details {
+        border-bottom-left-radius: 0!important;
+        border-top-right-radius: 1.5em;
+    }
+    .card-body{
+        display: flex;
+        flex-direction: column;
     }
 }
 
